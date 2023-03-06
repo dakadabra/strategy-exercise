@@ -10,8 +10,11 @@ public class StrategyTest {
 		// Flat rate
 		Discount discount = new FlatRateDiscount(5);
 		assertEquals(discount.compute(100), 95, 0.001);
-		
+
 		discount = new PercentDiscount(25);
 		assertEquals(discount.compute(100), 75, 0.001);
+
+		discount = new RandomDiscount();
+		assertEquals(discount.compute(100), 75, 25);
 	}
 }
